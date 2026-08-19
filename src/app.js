@@ -1,13 +1,16 @@
 import express from "express";
 import connectDB from "./config/db.js";
 import userRoutes from "./routes/user.routes.js";
+import connectionRoutes from "./routes/connection.routes.js";
 import cookieParser from "cookie-parser";
+
 
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/user", userRoutes);
+app.use("/api/connection",connectionRoutes);
 
 connectDB()
 .then(()=>{
